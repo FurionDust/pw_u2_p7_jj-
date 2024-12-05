@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+</head>
+
+<body>
+
+    <div id="myApp">
+
+        {{listafrases}}
+
+        <ul>
+            <li v-for="mifrase in listafrases">{{mifrase.frase}} - {{mifrase.Autor}}
+                <button>{{mifrase.Autor}}</button>
+                <p>{{mifrase.frase}}</p>
+            </li>
+        </ul>
+
+        <hr>
+        <label for="idFrase">Frase</label>
+        <input type="text" id="idFrase">
+        <label for="idAutor">Autor</label>
+        <input type="text" id="idAutor">
+        <button>Agregar</button>
+        <ul>
+            <li v-for="{frase,Autor} in listafrases">{{frase}} - {{Autor}}
+                <button>{{Autor}}</button>
+                <p>{{frase}}</p>
+            </li>
+        </ul>
+
+    </div>
+
+
+    <script src="../js/appFrases.js"></script>
+
+</body>
+
+</html>
