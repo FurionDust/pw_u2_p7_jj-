@@ -1,45 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-
+ 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
+    <title>Frases</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script><!--ESTO ES USANDO EL CDN-->
 </head>
-
+ 
 <body>
-
-    <div id="myApp">
-
-        {{listafrases}}
-
+    <div id="myApp"><!--ESTE ID VA A REPRESENTARA MI APLICACIÓN POR LO QUE DEBE IR EN EL JS-->
+        {{listaFrases}}
         <ul>
-            <li v-for="mifrase in listafrases">{{mifrase.frase}} - {{mifrase.Autor}}
-                <button>{{mifrase.Autor}}</button>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+ 
+        <hr>
+ 
+        <ul>
+            <li v-for="mifrase in listaFrases">{{mifrase.frase}}-{{mifrase.autor}}
+                <button>{{mifrase.autor}}</button>
                 <p>{{mifrase.frase}}</p>
             </li>
         </ul>
-
+ 
         <hr>
-        <label for="idFrase">Frase</label>
-        <input type="text" id="idFrase">
-        <label for="idAutor">Autor</label>
-        <input type="text" id="idAutor">
-        <button>Agregar</button>
+ 
+        <label for="idFrase">Frase: </label>
+        <input v-model="frase" id="idFrase" type="text">
+        <p>{{frases}}</p>
+ 
+        <label for="idAutor">Autor: </label>
+       <!-- <input v-on:keypress="eventoKeyPress" v-model="autor" id="idAutor" type="text">-->
+       <input v-on:keypress.enter="eventoKeyPressModificador" v-model="autor" id="idAutor" type="text">
+        <button v-on:click="agregarFrase" >Agregar Inicio</button>
+        <button v-on:click="agregarFraseFinal" >Agregar Final</button>
+       
+        <hr>
+ 
         <ul>
-            <li v-for="{frase,Autor} in listafrases">{{frase}} - {{Autor}}
-                <button>{{Autor}}</button>
-                <p>{{frase}}</p>
+            <li v-for="{frase,autor} in listaFrases">{{frase}}-{{autor}}
+                <button v-if="autor!==null">{{autor}}</button> <!--el v-if no contruye el elemento-->
+                <p v-if="autor!==null">Autor: {{autor}}</p> <!--el v-show oculta el elemento-->
             </li>
         </ul>
-
     </div>
-
-
-    <script src="../js/appFrases.js"></script>
-
+    <script src="../js/appfrases.js"></script>
+ 
 </body>
-
+ 
 </html>
